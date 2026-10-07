@@ -1,0 +1,33 @@
+.app {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 24px;
+  font-family: Arial, sans-serif;
+  color: #222;
+}
+
+.page-title {
+  color: #1769aa;
+  text-align: center;
+  font-size: 2.2rem;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.student-profile {
+  border: 2px solid #1769aa;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 24px;
+  background-color: #f5f9ff;
+}
+
+.student-profile p {
+  margin: 8px 0;
+}
+
+footer {
+  margin-top: 32px;
+  text-align: center;
+  color: #555;
+}
