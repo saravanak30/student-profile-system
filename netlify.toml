@@ -1,0 +1,4 @@
+[build]
+  base = "student-profiles"
+  command = "npm run build"
+  publish = "dist"
