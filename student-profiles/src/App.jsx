@@ -1,15 +1,26 @@
+import { useEffect, useState } from 'react';
 import './App.css';
 
 function Header() {
   return <h1 className="page-title">Student Management System</h1>;
 }
 
-function StudentProfile({ name, department, year }) {
+function StudentProfile({ name, department, year, practiceCount }) {
+  useEffect(() => {
+    const previousTitle = document.title;
+    document.title = `Practice Sessions: ${practiceCount}`;
+
+    return () => {
+      document.title = previousTitle;
+    };
+  }, [practiceCount]);
+
   return (
     <div className="student-profile">
       <p><strong>Name:</strong> {name}</p>
       <p><strong>Department:</strong> {department}</p>
       <p><strong>Year:</strong> {year}</p>
+      <p><strong>Practice Sessions Completed:</strong> {practiceCount}</p>
     </div>
   );
 }
@@ -19,15 +30,12 @@ function Footer() {
 }
 
 function App() {
-  const student1 = {
+  const [practiceCount, setPracticeCount] = useState(0);
+  const [isProfileVisible, setIsProfileVisible] = useState(true);
+
+  const student = {
     name: 'Anu',
     department: 'CSE',
-    year: '3rd Year',
-  };
-
-  const student2 = {
-    name: 'Bala',
-    department: 'Computer Science',
     year: '3rd Year',
   };
 
@@ -35,19 +43,27 @@ function App() {
     <div className="app">
       <Header />
 
-      <h2>Student 1</h2>
-      <StudentProfile
-        name={student1.name}
-        department={student1.department}
-        year={student1.year}
-      />
+      <button onClick={() => setIsProfileVisible(!isProfileVisible)}>
+        {isProfileVisible ? 'Hide Profile' : 'Show Profile'}
+      </button>
 
-      <h2>Student 2</h2>
-      <StudentProfile
-        name={student2.name}
-        department={student2.department}
-        year={student2.year}
-      />
+      {isProfileVisible && (
+        <>
+          <StudentProfile
+            name={student.name}
+            department={student.department}
+            year={student.year}
+            practiceCount={practiceCount}
+          />
+
+          <button onClick={() => setPracticeCount(practiceCount + 1)}>
+            Complete Practice
+          </button>
+          <button onClick={() => setPracticeCount(0)}>
+            Reset
+          </button>
+        </>
+      )}
 
       <Footer />
     </div>

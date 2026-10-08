@@ -6,6 +6,6 @@ export default defineConfig({
   plugins: [react()],
   server: {
     host: '0.0.0.0',
-    allowedHosts: ['42a4a45aa3cf-0af40cec-5300.ws6.app'],
+    allowedHosts: ['c40b5a28f63a-0af412bf-5300.ws6.app'],
   },
 });
