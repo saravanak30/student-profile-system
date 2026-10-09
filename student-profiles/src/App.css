@@ -1,33 +1,124 @@
-.app {
-  max-width: 700px;
-  margin: 40px auto;
-  padding: 24px;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
   font-family: Arial, sans-serif;
+  background: #f3f4f6;
   color: #222;
 }
 
-.page-title {
-  color: #1769aa;
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background: #131921;
+  color: #ff9900;
+  padding: 18px;
   text-align: center;
-  font-size: 2.2rem;
-  line-height: 1.2;
-  white-space: nowrap;
 }
 
-.student-profile {
-  border: 2px solid #1769aa;
-  border-radius: 8px;
-  padding: 16px;
-  margin-bottom: 24px;
-  background-color: #f5f9ff;
+.header h1 {
+  margin: 0;
 }
 
-.student-profile p {
-  margin: 8px 0;
+.container {
+  width: min(650px, 92%);
+  margin: 30px auto;
+  flex: 1;
 }
 
-footer {
-  margin-top: 32px;
+.container > h2 {
   text-align: center;
-  color: #555;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.control-group label {
+  font-weight: bold;
+}
+
+.control-group select,
+.control-group input {
+  padding: 11px;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  font-size: 16px;
+  background: white;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 22px 0;
+}
+
+.buttons button {
+  padding: 11px 15px;
+  border: none;
+  border-radius: 5px;
+  background: #ff9900;
+  color: #111;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.buttons button:hover:not(:disabled) {
+  background: #f5b942;
+}
+
+.buttons button:disabled {
+  background: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.product-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 22px;
+  margin: 20px 0;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.product-card h2 {
+  color: #146eb4;
+}
+
+.product-card p {
+  line-height: 1.6;
+}
+
+.footer {
+  background: #131921;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  margin-top: auto;
+}
+
+input,
+select,
+textarea {
+  color: #111 !important;
+  -webkit-text-fill-color: #111 !important;
+  caret-color: #111;
+  background-color: #fff;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #666;
+  opacity: 1;
 }
